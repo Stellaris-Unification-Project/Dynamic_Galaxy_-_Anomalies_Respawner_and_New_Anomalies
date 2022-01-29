@@ -1,0 +1,109 @@
+namespace = AnomaliesRespawnEvent
+
+event = {
+	id = AnomaliesRespawnEvent.1
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { while = { count = 1 random_planet = { limit = { anomaly_possible = yes } anomaly_spawner = yes } } }
+}
+
+event = {
+	id = AnomaliesRespawnEvent.3
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { while = { count = 3 random_planet = { limit = { anomaly_possible = yes } anomaly_spawner = yes } } }
+}
+
+event = {
+	id = AnomaliesRespawnEvent.5
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { while = { count = 5 random_planet = { limit = { anomaly_possible = yes } anomaly_spawner = yes } } }
+}
+
+event = {
+	id = AnomaliesRespawnEvent.10
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { while = { count = 10 random_planet = { limit = { anomaly_possible = yes } anomaly_spawner = yes } } }
+}
+
+event = {
+	id = AnomaliesRespawnEvent.50
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { while = { count = 50 random_planet = { limit = { anomaly_possible = yes } anomaly_spawner = yes } } }
+}
+
+event = {
+	id = AnomaliesRespawnEvent.100
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { while = { count = 100 random_planet = { limit = { anomaly_possible = yes } anomaly_spawner = yes } } }
+}
+
+event = {
+	id = AnomaliesRespawnEvent.250
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { while = { count = 250 random_planet = { limit = { anomaly_possible = yes } anomaly_spawner = yes } } }
+}
+
+event = {
+	id = AnomaliesRespawnEvent.500
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { while = { count = 500 random_planet = { limit = { anomaly_possible = yes } anomaly_spawner = yes } } }
+}
+
+event = {
+	id = AnomaliesRespawnEvent.1000
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { while = { count = 1000 random_planet = { limit = { anomaly_possible = yes } anomaly_spawner = yes } } }
+}
+
+event = {
+	id = AnomaliesRespawnEvent.2000
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		every_country = {
+			limit = {
+				is_valid_playable_empire = yes
+				any_planet_within_border = { has_planet_flag = planet_has_new_anomaly has_anomaly = yes }
+				NOT = { has_country_flag = new_anomalies_no_warning }
+			}
+			country_event = { id = AnomaliesRespawnEvent.2001 days = 30 random = 90 }
+		}
+	}
+}
+
+country_event = {
+	id = AnomaliesRespawnEvent.2001
+	title = "AnomaliesRespawnEvent.2001.Name"
+	desc = "AnomaliesRespawnEvent.2001.Desc"
+	picture = GFX_evt_new_anomalies
+	show_sound = event_ship_bridge
+	location = event_target:anomaly_location
+	is_triggered_only = yes
+	immediate = { 
+		random_planet_within_border = {
+			limit = { has_planet_flag = planet_has_new_anomaly has_anomaly = yes }
+			save_event_target_as = anomaly_location
+		}
+		every_planet_within_border = {
+			limit = { has_planet_flag = planet_has_new_anomaly }
+			remove_planet_flag = planet_has_new_anomaly
+		}
+	}
+	option = { name = INTERESTING default_hide_option = yes }
+	option = { name = "Don't show this message again." set_country_flag = new_anomalies_no_warning }
+}
+
+event = {
+	id = AnomaliesRespawnEvent.9999
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { every_planet = { limit = { has_anomaly = yes } add_anomaly = delete_anomaly_slot } }
+}

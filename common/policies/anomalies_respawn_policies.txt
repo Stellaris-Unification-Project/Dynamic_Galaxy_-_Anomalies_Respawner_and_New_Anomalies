@@ -1,0 +1,76 @@
+custom_anomalies = {
+	potential = {}
+	option = {
+		name = "policy_custom_anomalies_activated"		
+		policy_flags = { custom_anomalies_activated }
+		ai_weight = { weight = 1000 }
+	}
+	option = {
+		name = "policy_custom_anomalies_deactivated"	
+		policy_flags = { custom_anomalies_deactivated }
+		ai_weight = { weight = 0 }
+	}
+	option = {
+		name = "policy_custom_anomalies_more"		
+		policy_flags = { custom_anomalies_activated custom_anomalies_more }
+		ai_weight = { weight = 0 }
+	}
+	option = {
+		name = "policy_custom_anomalies_lots"		
+		policy_flags = { custom_anomalies_activated custom_anomalies_lots }
+		ai_weight = { weight = 0 }
+	}
+	option = {
+		name = "policy_custom_anomalies_less"		
+		policy_flags = { custom_anomalies_activated custom_anomalies_less }
+		ai_weight = { weight = 0 }
+	}
+	option = {
+		name = "policy_custom_anomalies_rare"		
+		policy_flags = { custom_anomalies_activated custom_anomalies_rare }
+		ai_weight = { weight = 0 }
+	}
+}
+
+custom_discovery_chances = {
+	potential = {}
+	option = {
+		name = "policy_custom_discovery_chances_normal"		
+		ai_weight = { weight = 1000 }
+	}
+	option = {
+		name = "policy_custom_discovery_chances_more"		
+		modifier = { ship_anomaly_generation_chance_mult = 0.50 }
+		ai_weight = { weight = 0 }
+	}
+	option = {
+		name = "policy_custom_discovery_chances_even_more"		
+		modifier = { ship_anomaly_generation_chance_mult = 1.0 }
+		ai_weight = { weight = 0 }
+	}
+	option = {
+		name = "policy_custom_discovery_chances_lots"		
+		modifier = { ship_anomaly_generation_chance_mult = 2.0 }
+		ai_weight = { weight = 0 }
+	}
+	option = {
+		name = "policy_custom_discovery_chances_chaos"		
+		modifier = { ship_anomaly_generation_chance_mult = 4.0 }
+		ai_weight = { weight = 0 }
+	}
+	option = {
+		name = "policy_custom_discovery_chances_total_chaos"		
+		modifier = { ship_anomaly_generation_chance_mult = 8.0 }
+		ai_weight = { weight = 0 }
+	}
+	option = {
+		name = "policy_custom_discovery_chances_less"		
+		modifier = { ship_anomaly_generation_chance_mult = -0.50 }
+		ai_weight = { weight = 0 }
+	}
+	option = {
+		name = "policy_custom_discovery_chances_rare"		
+		modifier = { ship_anomaly_generation_chance_mult = -0.75 }
+		ai_weight = { weight = 0 }
+	}
+}
