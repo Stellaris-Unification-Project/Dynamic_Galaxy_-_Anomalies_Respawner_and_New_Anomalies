@@ -7,4 +7,4 @@ tags={
 	"Utilities"
 }
 remote_file_id="1410753850"
-supported_version="2.3.*"
+supported_version="3.2.2"
